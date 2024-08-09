@@ -68,9 +68,11 @@ public class GCStoBigTableTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> gcsCsvToBigtableTest.validateInput());
     assertEquals(
-        "Required parameters for GCStoBT not passed. "
-            + "Set mandatory parameter for GCStoBT template"
-            + " in resources/conf/template.properties file.",
+        """
+        Required parameters for GCStoBT not passed. \
+        Set mandatory parameter for GCStoBT template\
+         in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

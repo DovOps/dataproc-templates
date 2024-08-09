@@ -67,9 +67,11 @@ public class GCStoBigqueryTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> gcsCsvToBiqueryTest.validateInput());
     assertEquals(
-        "Required parameters for GCStoBQ not passed. "
-            + "Set mandatory parameter for GCStoBQ template"
-            + " in resources/conf/template.properties file.",
+        """
+        Required parameters for GCStoBQ not passed. \
+        Set mandatory parameter for GCStoBQ template\
+         in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

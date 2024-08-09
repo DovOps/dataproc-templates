@@ -140,18 +140,22 @@ public class GCStoBigquery implements BaseTemplate {
           GCS_BQ_INPUT_FORMAT,
           GCS_BQ_LD_TEMP_BUCKET_NAME);
       throw new IllegalArgumentException(
-          "Required parameters for GCStoBQ not passed. "
-              + "Set mandatory parameter for GCStoBQ template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for GCStoBQ not passed. \
+          Set mandatory parameter for GCStoBQ template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting GCS to Bigquery spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {}:{}"
-            + "5. {}:{}",
+        """
+        Starting GCS to Bigquery spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {}:{}\
+        5. {}:{}\
+        """,
         GCS_BQ_INPUT_LOCATION,
         inputFileLocation,
         GCS_OUTPUT_DATASET_NAME,

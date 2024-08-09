@@ -148,9 +148,11 @@ public class JDBCToBigQuery implements BaseTemplate {
           JDBC_TO_BQ_SQL,
           JDBC_TO_BQ_TEMP_GCS_BUCKET);
       throw new IllegalArgumentException(
-          "Required parameters for JDBCToBQ not passed. "
-              + "Set mandatory parameter for JDBCToBQ template "
-              + "in resources/conf/template.properties file or at runtime. Refer to jdbc/README.md for more instructions.");
+          """
+          Required parameters for JDBCToBQ not passed. \
+          Set mandatory parameter for JDBCToBQ template \
+          in resources/conf/template.properties file or at runtime. Refer to jdbc/README.md for more instructions.\
+          """);
     }
 
     if (StringUtils.isNotBlank(concatedPartitionProps)
@@ -159,9 +161,11 @@ public class JDBCToBigQuery implements BaseTemplate {
                 || StringUtils.isBlank(jdbcSQLUpperBound))
             || StringUtils.isBlank(jdbcSQLNumPartitions))) {
       throw new IllegalArgumentException(
-          "Required parameters for JDBCToGCS not passed. "
-              + "Set all the sql partitioning parameters together"
-              + "in resources/conf/template.properties file or at runtime. Refer to jdbc/README.md for more instructions.");
+          """
+          Required parameters for JDBCToGCS not passed. \
+          Set all the sql partitioning parameters together\
+          in resources/conf/template.properties file or at runtime. Refer to jdbc/README.md for more instructions.\
+          """);
     }
   }
 }

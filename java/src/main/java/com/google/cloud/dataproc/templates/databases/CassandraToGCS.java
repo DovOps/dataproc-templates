@@ -64,8 +64,8 @@ public class CassandraToGCS implements BaseTemplate, TemplateConstants {
     if (StringUtils.isAllBlank(config.getQuery())) {
       dataset =
           spark.sql(
-              String.format(
-                  "SELECT * FROM %1$s.%2$s.%3$s",
+              
+                  "SELECT * FROM %1$s.%2$s.%3$s".formatted(
                   config.getCatalog(), config.getKeyspace(), config.getInputTable()));
     } else {
       dataset = spark.sql(config.getQuery());

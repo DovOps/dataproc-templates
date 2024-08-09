@@ -92,7 +92,7 @@ class KafkaReaderTest {
             .processJsonMessage(jsonData, messageSchema)
             .select("id")
             .collectAsList()
-            .get(0)
+            .getFirst()
             .get(0)
             .toString());
   }
@@ -119,7 +119,7 @@ class KafkaReaderTest {
             .processBytesMessage(bytesData)
             .select("value")
             .collectAsList()
-            .get(0)
+            .getFirst()
             .get(0)
             .toString());
   }

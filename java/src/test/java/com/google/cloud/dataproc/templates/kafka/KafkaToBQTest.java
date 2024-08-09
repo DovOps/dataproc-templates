@@ -60,9 +60,11 @@ class KafkaToBQTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> kafkaToBQ.validateInput());
     assertEquals(
-        "Required parameters for KafkaToBQ not passed. "
-            + "Set mandatory parameter for KafkaToBQ template "
-            + "in resources/conf/template.properties file.",
+        """
+        Required parameters for KafkaToBQ not passed. \
+        Set mandatory parameter for KafkaToBQ template \
+        in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

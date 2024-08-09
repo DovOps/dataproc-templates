@@ -71,9 +71,11 @@ public class S3ToBigQueryTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> s3ToBigQueryTest.validateInput());
     assertEquals(
-        "Required parameters for S3toBQ not passed. "
-            + "Set mandatory parameter for S3toBQ template"
-            + " in resources/conf/template.properties file.",
+        """
+        Required parameters for S3toBQ not passed. \
+        Set mandatory parameter for S3toBQ template\
+         in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

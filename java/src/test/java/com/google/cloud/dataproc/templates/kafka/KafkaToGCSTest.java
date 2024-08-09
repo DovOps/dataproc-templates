@@ -68,9 +68,11 @@ public class KafkaToGCSTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> kafkaToGCSTest.validateInput());
     assertEquals(
-        "Required parameters for KafkaToGCS not passed. "
-            + "Set mandatory parameter for KafkaToGCS template "
-            + "in resources/conf/template.properties file.",
+        """
+        Required parameters for KafkaToGCS not passed. \
+        Set mandatory parameter for KafkaToGCS template \
+        in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

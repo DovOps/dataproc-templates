@@ -162,9 +162,11 @@ public class KafkaToGCSDstream implements BaseTemplate {
           KAFKA_MESSAGE_FORMAT,
           KAFKA_GCS_CONSUMER_GROUP_ID);
       throw new IllegalArgumentException(
-          "Required parameters for KafkaTOGCSDstream not passed. "
-              + "Set mandatory parameter for KafkaTOGCSDstream template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for KafkaTOGCSDstream not passed. \
+          Set mandatory parameter for KafkaTOGCSDstream template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     if (kafkaMessageFormat.equals("json") & StringUtils.isAllBlank(kafkaSchemaUrl)) {
@@ -173,17 +175,19 @@ public class KafkaToGCSDstream implements BaseTemplate {
     }
 
     LOGGER.info(
-        "Starting kafka to GCS via DStream spark job with following parameters:"
-            + "1. {}:{} "
-            + "2. {}:{} "
-            + "3. {}:{} "
-            + "4. {}:{} "
-            + "5. {}:{} "
-            + "6. {}:{} "
-            + "7. {}:{} "
-            + "8. {}:{} "
-            + "9. {}:{} "
-            + "10. {}:{} ",
+        """
+        Starting kafka to GCS via DStream spark job with following parameters:\
+        1. {}:{} \
+        2. {}:{} \
+        3. {}:{} \
+        4. {}:{} \
+        5. {}:{} \
+        6. {}:{} \
+        7. {}:{} \
+        8. {}:{} \
+        9. {}:{} \
+        10. {}:{} \
+        """,
         KAFKA_MESSAGE_FORMAT,
         kafkaMessageFormat,
         KAFKA_GCS_OUTPUT_LOCATION,

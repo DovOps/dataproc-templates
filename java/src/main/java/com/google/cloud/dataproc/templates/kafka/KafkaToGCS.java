@@ -109,9 +109,11 @@ public class KafkaToGCS implements BaseTemplate {
           KAFKA_TOPIC,
           KAFKA_MESSAGE_FORMAT);
       throw new IllegalArgumentException(
-          "Required parameters for KafkaToGCS not passed. "
-              + "Set mandatory parameter for KafkaToGCS template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for KafkaToGCS not passed. \
+          Set mandatory parameter for KafkaToGCS template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     if (kafkaMessageFormat.equals("json") & StringUtils.isAllBlank(kafkaSchemaUrl)) {
@@ -121,14 +123,16 @@ public class KafkaToGCS implements BaseTemplate {
 
     SparkSession spark = null;
     LOGGER.info(
-        "Starting Kafka to GCS spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {},{}"
-            + "5. {},{}"
-            + "6. {},{}"
-            + "7, {},{}",
+        """
+        Starting Kafka to GCS spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {},{}\
+        5. {},{}\
+        6. {},{}\
+        7, {},{}\
+        """,
         KAFKA_GCS_OUTPUT_LOCATION,
         gcsOutputLocation,
         KAFKA_GCS_OUTPUT_FORMAT,

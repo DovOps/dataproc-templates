@@ -35,7 +35,7 @@
     </license>
   </licenses>
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>21</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <spark.version>3.3.3</spark.version>
@@ -334,7 +334,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.8</version>
+        <version>0.8.12</version>
         <executions>
           <execution>
             <id>prepare-agent</id>

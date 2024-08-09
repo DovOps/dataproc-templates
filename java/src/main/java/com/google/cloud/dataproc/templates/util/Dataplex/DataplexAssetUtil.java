@@ -52,7 +52,7 @@ public class DataplexAssetUtil {
    * @throws IOException when request on Dataplex API fails
    */
   private JsonObject getAssetDetails() throws IOException {
-    String url = String.format(GET_ASSET_METHOD_URL, this.assetName);
+    String url = GET_ASSET_METHOD_URL.formatted(this.assetName);
     return DataplexAPIUtil.executeRequest(url);
   }
 

@@ -61,9 +61,11 @@ public class GCStoMongoTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> gcstoMongoTestObject.validateInput());
     assertEquals(
-        "Required parameters for GCStoMongo not passed. "
-            + "Set mandatory parameter for GCStoMongo template"
-            + " in resources/conf/template.properties file.",
+        """
+        Required parameters for GCStoMongo not passed. \
+        Set mandatory parameter for GCStoMongo template\
+         in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

@@ -153,7 +153,7 @@ public class DataProcTemplate {
       return TemplateName.valueOf(templateNameString.trim().toUpperCase());
     } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException(
-          String.format("Unexpected template name: %s", templateNameString), e);
+          "Unexpected template name: %s".formatted(templateNameString), e);
     }
   }
 
@@ -201,7 +201,7 @@ public class DataProcTemplate {
       return TEMPLATE_FACTORIES.get(templateName).apply(remainingArgs);
     } else {
       throw new IllegalArgumentException(
-          String.format("Unexpected template name: %s", templateName));
+          "Unexpected template name: %s".formatted(templateName));
     }
   }
 

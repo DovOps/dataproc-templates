@@ -57,9 +57,11 @@ class BigQueryToGCSTest {
     BigQueryToGCS template = new BigQueryToGCS();
     Exception exception = assertThrows(IllegalArgumentException.class, template::validateInput);
     assertEquals(
-        "Required parameters for BigQueryToGCS not passed. "
-            + "Set mandatory parameter for BigQueryToGCS template in "
-            + "resources/conf/template.properties file.",
+        """
+        Required parameters for BigQueryToGCS not passed. \
+        Set mandatory parameter for BigQueryToGCS template in \
+        resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

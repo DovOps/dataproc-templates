@@ -136,18 +136,22 @@ public class GCStoBigTable implements BaseTemplate, java.io.Serializable {
           GCS_BT_OUTPUT_TABLE_COLUMN_FAMILY,
           GCS_BT_OUTPUT_PROJECT_ID);
       throw new IllegalArgumentException(
-          "Required parameters for GCStoBT not passed. "
-              + "Set mandatory parameter for GCStoBT template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for GCStoBT not passed. \
+          Set mandatory parameter for GCStoBT template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting GCS to BigTable spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {}:{}"
-            + "5. {}:{}",
+        """
+        Starting GCS to BigTable spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {}:{}\
+        5. {}:{}\
+        """,
         GCS_BT_INPUT_LOCATION,
         inputFileLocation,
         GCS_BT_OUTPUT_INSTANCE_ID,

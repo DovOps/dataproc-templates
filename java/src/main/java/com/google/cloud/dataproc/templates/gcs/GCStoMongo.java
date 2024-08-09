@@ -108,18 +108,22 @@ public class GCStoMongo implements BaseTemplate {
           GCS_MONGO_DATABASE,
           GCS_MONGO_COLLECTION);
       throw new IllegalArgumentException(
-          "Required parameters for GCStoMongo not passed. "
-              + "Set mandatory parameter for GCStoMongo template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for GCStoMongo not passed. \
+          Set mandatory parameter for GCStoMongo template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting GCS to Mongo spark job with following parameters:"
-            + "1. {}:{} | "
-            + "2. {}:{} | "
-            + "3. {}:{} | "
-            + "4. {}:{} | "
-            + "5. {}:{} | ",
+        """
+        Starting GCS to Mongo spark job with following parameters:\
+        1. {}:{} | \
+        2. {}:{} | \
+        3. {}:{} | \
+        4. {}:{} | \
+        5. {}:{} | \
+        """,
         GCS_MONGO_INPUT_LOCATION,
         inputFileLocation,
         GCS_MONGO_INPUT_FORMAT,

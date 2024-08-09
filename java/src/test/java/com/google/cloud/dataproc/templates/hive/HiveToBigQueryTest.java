@@ -65,9 +65,11 @@ class HiveToBigQueryTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> hiveToBigQueryTest.validateInput());
     assertEquals(
-        "Required parameters for HiveToBigQuery not passed. "
-            + "Set mandatory parameter for HiveToBigQuery template in "
-            + "resources/conf/template.properties file.",
+        """
+        Required parameters for HiveToBigQuery not passed. \
+        Set mandatory parameter for HiveToBigQuery template in \
+        resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

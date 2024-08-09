@@ -72,9 +72,11 @@ public class GCStoGCSTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> GCScsvToGCSTest.validateInput());
     assertEquals(
-        "Required parameters for GCStoGCS not passed. "
-            + "Set mandatory parameter for GCStoGCS template"
-            + " in resources/conf/template.properties file.",
+        """
+        Required parameters for GCStoGCS not passed. \
+        Set mandatory parameter for GCStoGCS template\
+         in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

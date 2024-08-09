@@ -166,21 +166,25 @@ public class PubSubToBigTable implements BaseTemplate {
           PUBSUB_BIGTABLE_OUTPUT_PROJECT_ID_PROP,
           PUBSUB_BIGTABLE_OUTPUT_TABLE_PROP);
       throw new IllegalArgumentException(
-          "Required parameters for PubSubToBigTable not passed. "
-              + "Set mandatory parameter for PubSubToBigTable template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for PubSubToBigTable not passed. \
+          Set mandatory parameter for PubSubToBigTable template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting PubSub to BigTable spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {},{}"
-            + "5. {},{}"
-            + "6. {},{}"
-            + "7. {},{}"
-            + "8. {},{}",
+        """
+        Starting PubSub to BigTable spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {},{}\
+        5. {},{}\
+        6. {},{}\
+        7. {},{}\
+        8. {},{}\
+        """,
         PUBSUB_INPUT_PROJECT_ID_PROP,
         inputProjectID,
         PUBSUB_INPUT_SUBSCRIPTION_PROP,

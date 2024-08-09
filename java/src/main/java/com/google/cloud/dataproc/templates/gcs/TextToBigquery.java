@@ -111,20 +111,24 @@ public class TextToBigquery implements BaseTemplate {
           TEXT_BIGQUERY_OUTPUT_MODE,
           TEXT_BIGQUERY_TEMP_BUCKET);
       throw new IllegalArgumentException(
-          "Required parameters for TextToBigquery not passed. "
-              + "Set mandatory parameter for TextToBigquery template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for TextToBigquery not passed. \
+          Set mandatory parameter for TextToBigquery template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting Text To Bigquery spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {}:{}"
-            + "5. {}:{}"
-            + "6. {}:{}"
-            + "7. {}:{}",
+        """
+        Starting Text To Bigquery spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {}:{}\
+        5. {}:{}\
+        6. {}:{}\
+        7. {}:{}\
+        """,
         TEXT_BIGQUERY_INPUT_LOCATION,
         inputLocation,
         TEXT_BIGQUERY_INPUT_DELIMITER,

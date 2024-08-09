@@ -147,21 +147,25 @@ public class PubSubLiteToBigTable implements BaseTemplate, java.io.Serializable 
           PUBSUBLITE_BIGTABLE_OUTPUT_PROJECT_ID_PROP,
           PUBSUBLITE_BIGTABLE_OUTPUT_TABLE_PROP);
       throw new IllegalArgumentException(
-          "Required parameters for PubSubLiteToBigTable not passed. "
-              + "Set mandatory parameter for PubSubLiteToBigTable template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for PubSubLiteToBigTable not passed. \
+          Set mandatory parameter for PubSubLiteToBigTable template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting PubSublite to BigTable spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {},{}"
-            + "5. {},{}"
-            + "6. {},{}"
-            + "7. {},{}"
-            + "8. {},{}",
+        """
+        Starting PubSublite to BigTable spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {},{}\
+        5. {},{}\
+        6. {},{}\
+        7. {},{}\
+        8. {},{}\
+        """,
         PUBSUBLITE_INPUT_PROJECT_ID_PROP,
         inputProjectID,
         PUBSUBLITE_INPUT_SUBSCRIPTION_PROP,

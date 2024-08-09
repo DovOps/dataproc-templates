@@ -28,7 +28,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Set;
 import org.apache.commons.cli.CommandLine;
 import org.junit.Ignore;
@@ -53,7 +52,7 @@ public class GeneralTemplateTest {
   }
 
   public void testLoadConfig(@TempDir Path tempDir) throws IOException {
-    Path yamlPath = Paths.get(tempDir.toString(), "config.yaml");
+    Path yamlPath = Path.of(tempDir.toString(), "config.yaml");
     writeConfigYaml(exampleConfig(), yamlPath);
     LOGGER.info("{}", new String(Files.readAllBytes(yamlPath), StandardCharsets.UTF_8));
     GeneralTemplateConfig config = GeneralTemplate.loadConfigYaml(yamlPath);
@@ -63,17 +62,18 @@ public class GeneralTemplateTest {
   }
 
   public void testLoadConfigWithoutQuery(@TempDir Path tempDir) throws IOException {
-    Path yamlPath = Paths.get(tempDir.toString(), "config.yaml");
+    Path yamlPath = Path.of(tempDir.toString(), "config.yaml");
     String yaml =
-        ""
-            + "input:\n"
-            + "  test:\n"
-            + "    format: bigquery\n"
-            + "    options: {}\n"
-            + "output:\n"
-            + "  test:\n"
-            + "    format: bigquery\n"
-            + "    options: {}\n";
+        """
+        input:
+          test:
+            format: bigquery
+            options: {}
+        output:
+          test:
+            format: bigquery
+            options: {}
+        """;
     try (BufferedWriter writer = Files.newBufferedWriter(yamlPath, StandardCharsets.UTF_8)) {
       writer.write(yaml);
     }
@@ -86,16 +86,17 @@ public class GeneralTemplateTest {
 
   @Ignore
   public void testLoadConfigWithoutInput(@TempDir Path tempDir) throws IOException {
-    Path yamlPath = Paths.get(tempDir.toString(), "config.yaml");
+    Path yamlPath = Path.of(tempDir.toString(), "config.yaml");
     String yaml =
-        ""
-            + "query:\n"
-            + "  result:\n"
-            + "    sql: select * from test\n"
-            + "output:\n"
-            + "  result:\n"
-            + "    format: bigquery\n"
-            + "    options: {}\n";
+        """
+        query:
+          result:
+            sql: select * from test
+        output:
+          result:
+            format: bigquery
+            options: {}
+        """;
     try (BufferedWriter writer = Files.newBufferedWriter(yamlPath, StandardCharsets.UTF_8)) {
       writer.write(yaml);
     }
@@ -107,16 +108,17 @@ public class GeneralTemplateTest {
   }
 
   public void testLoadConfigWithoutOutput(@TempDir Path tempDir) throws IOException {
-    Path yamlPath = Paths.get(tempDir.toString(), "config.yaml");
+    Path yamlPath = Path.of(tempDir.toString(), "config.yaml");
     String yaml =
-        ""
-            + "input:\n"
-            + "  test:\n"
-            + "    format: bigquery\n"
-            + "    options: {}\n"
-            + "query:\n"
-            + "  result:\n"
-            + "    sql: select * from test\n";
+        """
+        input:
+          test:
+            format: bigquery
+            options: {}
+        query:
+          result:
+            sql: select * from test
+        """;
     try (BufferedWriter writer = Files.newBufferedWriter(yamlPath, StandardCharsets.UTF_8)) {
       writer.write(yaml);
     }

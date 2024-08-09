@@ -64,9 +64,11 @@ public class KafkaToGCSDstreamTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> kafkaTOGCSDstream.validateInput());
     assertEquals(
-        "Required parameters for KafkaTOGCSDstream not passed. "
-            + "Set mandatory parameter for KafkaTOGCSDstream template "
-            + "in resources/conf/template.properties file.",
+        """
+        Required parameters for KafkaTOGCSDstream not passed. \
+        Set mandatory parameter for KafkaTOGCSDstream template \
+        in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

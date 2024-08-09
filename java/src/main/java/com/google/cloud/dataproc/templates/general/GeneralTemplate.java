@@ -26,7 +26,6 @@ import com.google.cloud.dataproc.templates.util.ValidationUtil;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Map.Entry;
 import org.apache.arrow.util.Preconditions;
@@ -79,7 +78,7 @@ public class GeneralTemplate implements BaseTemplate {
 
   public static GeneralTemplate of(String... args) {
     CommandLine cmd = parseArguments(args);
-    Path configPath = Paths.get(cmd.getOptionValue(CONFIG_FILE_OPTION));
+    Path configPath = Path.of(cmd.getOptionValue(CONFIG_FILE_OPTION));
 
     GeneralTemplateConfig config = null;
     try {
@@ -197,7 +196,7 @@ public class GeneralTemplate implements BaseTemplate {
       LOGGER.info("Writing output table {}", entry.getKey());
       Dataset<Row> dataset = spark.table(entry.getKey());
       Preconditions.checkNotNull(
-          dataset, String.format("No matching table for name %s, ", entry.getKey()));
+          dataset, "No matching table for name %s, ".formatted(entry.getKey()));
       write(dataset, entry.getValue());
     }
   }

@@ -61,9 +61,11 @@ public class KafkaToBQDstreamTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> kafkaToBQDstream.validateInput());
     assertEquals(
-        "Required parameters for KafkaToBQDstream not passed. "
-            + "Set mandatory parameter for KafkaToBQDstream template "
-            + "in resources/conf/template.properties file.",
+        """
+        Required parameters for KafkaToBQDstream not passed. \
+        Set mandatory parameter for KafkaToBQDstream template \
+        in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

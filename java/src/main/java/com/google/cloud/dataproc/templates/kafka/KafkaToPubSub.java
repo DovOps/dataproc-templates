@@ -98,20 +98,24 @@ public class KafkaToPubSub implements BaseTemplate {
           KAFKA_PUBSUB_OUTPUT_PROJECT_ID,
           KAFKA_PUBSUB_CHECKPOINT_LOCATION);
       throw new IllegalArgumentException(
-          "Required parameters for KafkaToPubSub not passed. "
-              + "Set mandatory parameter for KafkaToPubSub template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for KafkaToPubSub not passed. \
+          Set mandatory parameter for KafkaToPubSub template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting Kafka to PubSub spark job with following parameters:\n"
-            + "1. {}:{}\n"
-            + "2. {}:{}\n"
-            + "3. {}:{}\n"
-            + "4. {}:{}\n"
-            + "5. {}:{}\n"
-            + "6. {}:{}\n"
-            + "7. {}:{}\n",
+        """
+        Starting Kafka to PubSub spark job with following parameters:
+        1. {}:{}
+        2. {}:{}
+        3. {}:{}
+        4. {}:{}
+        5. {}:{}
+        6. {}:{}
+        7. {}:{}
+        """,
         KAFKA_PUBSUB_BOOTSTRAP_SERVERS,
         kafkaBootstrapServers,
         KAFKA_PUBSUB_INPUT_TOPIC,

@@ -73,7 +73,7 @@ class GCSToSpannerTest {
     ValidationException exception =
         assertThrows(ValidationException.class, template::validateInput);
     assertEquals(1, exception.getViolations().size());
-    ConstraintViolation<?> violation = exception.getViolations().get(0);
+    ConstraintViolation<?> violation = exception.getViolations().getFirst();
     assertEquals("must not be empty", violation.getMessage());
   }
 
@@ -92,7 +92,7 @@ class GCSToSpannerTest {
     ValidationException exception =
         assertThrows(ValidationException.class, template::validateInput);
     assertEquals(1, exception.getViolations().size());
-    ConstraintViolation<?> violation = exception.getViolations().get(0);
+    ConstraintViolation<?> violation = exception.getViolations().getFirst();
     assertEquals("primaryKey", violation.getPropertyPath().toString());
     assertEquals("must not be empty", violation.getMessage());
   }

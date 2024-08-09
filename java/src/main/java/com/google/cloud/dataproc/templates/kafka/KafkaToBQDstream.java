@@ -170,23 +170,27 @@ public class KafkaToBQDstream implements BaseTemplate {
           KAFKA_BQ_STREAM_OUTPUT_MODE);
 
       throw new IllegalArgumentException(
-          "Required parameters for KafkaToBQDstream not passed. "
-              + "Set mandatory parameter for KafkaToBQDstream template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for KafkaToBQDstream not passed. \
+          Set mandatory parameter for KafkaToBQDstream template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting Kafka to BQ via DStream spark job with following parameters:"
-            + "1. {}:{} "
-            + "2. {}:{} "
-            + "3. {}:{} "
-            + "4. {},{} "
-            + "5. {},{} "
-            + "6. {},{} "
-            + "7. {},{} "
-            + "8. {},{} "
-            + "9. {},{} "
-            + "10. {},{} ",
+        """
+        Starting Kafka to BQ via DStream spark job with following parameters:\
+        1. {}:{} \
+        2. {}:{} \
+        3. {}:{} \
+        4. {},{} \
+        5. {},{} \
+        6. {},{} \
+        7. {},{} \
+        8. {},{} \
+        9. {},{} \
+        10. {},{} \
+        """,
         KAFKA_BOOTSTRAP_SERVERS,
         kafkaBootstrapServers,
         KAFKA_TOPIC,

@@ -101,9 +101,11 @@ public class BigQueryToGCS implements BaseTemplate {
           BQ_GCS_OUTPUT_FORMAT,
           BQ_GCS_OUTPUT_LOCATION);
       throw new IllegalArgumentException(
-          "Required parameters for BigQueryToGCS not passed. "
-              + "Set mandatory parameter for BigQueryToGCS template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for BigQueryToGCS not passed. \
+          Set mandatory parameter for BigQueryToGCS template \
+          in resources/conf/template.properties file.\
+          """);
     }
   }
 }

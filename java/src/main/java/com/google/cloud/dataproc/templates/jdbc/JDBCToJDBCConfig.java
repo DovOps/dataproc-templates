@@ -120,9 +120,11 @@ public class JDBCToJDBCConfig {
 
   @AssertTrue(
       message =
-          "Required parameters for JDBCToJDBC not passed. "
-              + "Set all the SQL partitioning properties. "
-              + "Refer to jdbc/README.md for more instructions.")
+          """
+          Required parameters for JDBCToJDBC not passed. \
+          Set all the SQL partitioning properties. \
+          Refer to jdbc/README.md for more instructions.\
+          """)
   private boolean isPartitionsPropertyValid() {
     return StringUtils.isBlank(getConcatenatedPartitionProps())
         || (StringUtils.isNotBlank(jdbcInputPartitionColumn)
@@ -133,9 +135,11 @@ public class JDBCToJDBCConfig {
 
   @AssertTrue(
       message =
-          "Required parameters for JDBCToJDBC not passed. "
-              + "Set temp view property to do data transformations with query. "
-              + "Refer to jdbc/README.md for more instructions.")
+          """
+          Required parameters for JDBCToJDBC not passed. \
+          Set temp view property to do data transformations with query. \
+          Refer to jdbc/README.md for more instructions.\
+          """)
   private boolean isSqlPropertyValid() {
     return StringUtils.isBlank(jdbcSQLQuery)
         || (StringUtils.isNotBlank(jdbcSQLQuery) && StringUtils.isNotBlank(jdbcTempView));

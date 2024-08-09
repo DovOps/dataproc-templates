@@ -93,9 +93,11 @@ public class MongoToGCS implements BaseTemplate {
           MONGO_GCS_INPUT_URI,
           MONGO_GCS_INPUT_DATABASE);
       throw new IllegalArgumentException(
-          "Required parameters for Mongo to GCS not passed. "
-              + "Set mandatory parameter for Mongo to GCS template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for Mongo to GCS not passed. \
+          Set mandatory parameter for Mongo to GCS template \
+          in resources/conf/template.properties file.\
+          """);
     }
   }
 }

@@ -107,18 +107,22 @@ public class GCStoGCS implements BaseTemplate {
           GCS_GCS_OUTPUT_FORMAT,
           GCS_GCS_WRITE_MODE);
       throw new IllegalArgumentException(
-          "Required parameters for GCStoGCS not passed. "
-              + "Set mandatory parameter for GCStoGCS template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for GCStoGCS not passed. \
+          Set mandatory parameter for GCStoGCS template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting GCS to GCS spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {}:{}"
-            + "5. {}:{}",
+        """
+        Starting GCS to GCS spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {}:{}\
+        5. {}:{}\
+        """,
         GCS_GCS_INPUT_LOCATION,
         inputFileLocation,
         GCS_GCS_INPUT_FORMAT,

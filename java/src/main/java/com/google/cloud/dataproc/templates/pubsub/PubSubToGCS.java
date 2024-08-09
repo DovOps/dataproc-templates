@@ -116,21 +116,25 @@ public class PubSubToGCS implements BaseTemplate {
           PUBSUB_GCS_BUCKET_NAME,
           PUBSUB_GCS_OUTPUT_DATA_FORMAT);
       throw new IllegalArgumentException(
-          "Required parameters for PubSubToGCS not passed. "
-              + "Set mandatory parameter for PubSubToGCS template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for PubSubToGCS not passed. \
+          Set mandatory parameter for PubSubToGCS template \
+          in resources/conf/template.properties file.\
+          """);
     }
     LOGGER.info(
-        "Starting PubSub to GCS spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {},{}"
-            + "5. {},{}"
-            + "6. {},{}"
-            + "7. {},{}"
-            + "8. {},{}"
-            + "9. {},{}",
+        """
+        Starting PubSub to GCS spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {},{}\
+        5. {},{}\
+        6. {},{}\
+        7. {},{}\
+        8. {},{}\
+        9. {},{}\
+        """,
         PUBSUB_GCS_INPUT_PROJECT_ID_PROP,
         inputProjectID,
         PUBSUB_GCS_INPUT_SUBSCRIPTION_PROP,

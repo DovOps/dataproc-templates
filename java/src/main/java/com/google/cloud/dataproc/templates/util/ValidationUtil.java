@@ -80,7 +80,7 @@ public class ValidationUtil {
     private final List<ConstraintViolation<?>> violations;
 
     public ValidationException(Object object, List<ConstraintViolation<?>> violations) {
-      super(String.format("Invalid object %s, violations %s", object, violations));
+      super("Invalid object %s, violations %s".formatted(object, violations));
       this.violations = violations;
     }
 

@@ -65,9 +65,11 @@ public class PubSubToBigTableTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> pubSubToBigTableTest.validateInput());
     assertEquals(
-        "Required parameters for PubSubToBigTable not passed. "
-            + "Set mandatory parameter for PubSubToBigTable template "
-            + "in resources/conf/template.properties file.",
+        """
+        Required parameters for PubSubToBigTable not passed. \
+        Set mandatory parameter for PubSubToBigTable template \
+        in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

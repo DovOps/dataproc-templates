@@ -116,21 +116,25 @@ public class KafkaToBQ implements BaseTemplate {
           KAFKA_BQ_TABLE,
           KAFKA_BQ_TEMP_GCS_BUCKET);
       throw new IllegalArgumentException(
-          "Required parameters for KafkaToBQ not passed. "
-              + "Set mandatory parameter for KafkaToBQ template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for KafkaToBQ not passed. \
+          Set mandatory parameter for KafkaToBQ template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting Kafka to BQ spark job with following parameters:"
-            + "1. {}:{} "
-            + "2. {}:{} "
-            + "3. {}:{} "
-            + "4. {},{} "
-            + "5. {},{} "
-            + "6. {},{} "
-            + "7. {},{} "
-            + "8. {},{} ",
+        """
+        Starting Kafka to BQ spark job with following parameters:\
+        1. {}:{} \
+        2. {}:{} \
+        3. {}:{} \
+        4. {},{} \
+        5. {},{} \
+        6. {},{} \
+        7. {},{} \
+        8. {},{} \
+        """,
         KAFKA_BQ_CHECKPOINT_LOCATION,
         checkpointLocation,
         KAFKA_BQ_BOOTSTRAP_SERVERS,

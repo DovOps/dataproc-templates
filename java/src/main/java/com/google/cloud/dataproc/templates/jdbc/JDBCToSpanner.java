@@ -71,8 +71,8 @@ public class JDBCToSpanner implements BaseTemplate {
 
   public void write(Dataset<Row> dataset) {
     String spannerUrl =
-        String.format(
-            "jdbc:cloudspanner:/projects/%s/instances/%s/databases/%s?lenient=true",
+        
+            "jdbc:cloudspanner:/projects/%s/instances/%s/databases/%s?lenient=true".formatted(
             config.getProjectId(), config.getInstance(), config.getDatabase());
     JdbcDialects.registerDialect(new SpannerJdbcDialect());
     dataset
@@ -82,7 +82,7 @@ public class JDBCToSpanner implements BaseTemplate {
         .option(JDBCOptions.JDBC_TABLE_NAME(), config.getTable())
         .option(
             JDBCOptions.JDBC_CREATE_TABLE_OPTIONS(),
-            String.format("PRIMARY KEY (%s)", config.getPrimaryKey()))
+            "PRIMARY KEY (%s)".formatted(config.getPrimaryKey()))
         .option(
             JDBCOptions.JDBC_TXN_ISOLATION_LEVEL(),
             "NONE") // Needed because transaction have a 20,000 mutation limit per commit.

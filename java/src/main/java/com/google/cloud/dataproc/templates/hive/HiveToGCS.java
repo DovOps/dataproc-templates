@@ -111,16 +111,20 @@ public class HiveToGCS implements BaseTemplate {
           HIVE_INPUT_TABLE_DATABASE_PROP,
           HIVE_TO_GCS_OUTPUT_PATH_PROP);
       throw new IllegalArgumentException(
-          "Required parameters for HiveToGCS not passed. "
-              + "Set mandatory parameter for HiveToGCS template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for HiveToGCS not passed. \
+          Set mandatory parameter for HiveToGCS template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting Hive to GCS spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}",
+        """
+        Starting Hive to GCS spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        """,
         HIVE_TO_GCS_OUTPUT_PATH_PROP,
         outputPath,
         HIVE_INPUT_TABLE_PROP,

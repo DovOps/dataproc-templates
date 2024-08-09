@@ -154,8 +154,8 @@ public class SpannerToGCSConfig {
   }
 
   public String getSpannerJdbcUrl() {
-    return String.format(
-        "jdbc:cloudspanner:/projects/%s/instances/%s/databases/%s?lenient=true",
+    return 
+        "jdbc:cloudspanner:/projects/%s/instances/%s/databases/%s?lenient=true".formatted(
         projectId, spannerInstanceId, inputDatabaseId);
   }
 

@@ -142,9 +142,11 @@ public class SnowflakeToGCSConfig {
 
   @AssertTrue(
       message =
-          "Required parameters for SnowflakeToGCS not passed. "
-              + "Template property should be provided for EITHER the input database, schema, table OR an equivalent query to read data from Snowflake. "
-              + "Refer to snowflake/README.md for more instructions.")
+          """
+          Required parameters for SnowflakeToGCS not passed. \
+          Template property should be provided for EITHER the input database, schema, table OR an equivalent query to read data from Snowflake. \
+          Refer to snowflake/README.md for more instructions.\
+          """)
   private boolean isPropertiesNotSet() {
     return (StringUtils.isNotBlank(sfQuery)
         || (StringUtils.isNotBlank(sfDatabase)
@@ -154,9 +156,11 @@ public class SnowflakeToGCSConfig {
 
   @AssertTrue(
       message =
-          "Required parameters for SnowflakeToGCS not passed. "
-              + "Template property cannot be provided for BOTH the input database, schema, table AND an equivalent query. "
-              + "Refer to snowflake/README.md for more instructions.")
+          """
+          Required parameters for SnowflakeToGCS not passed. \
+          Template property cannot be provided for BOTH the input database, schema, table AND an equivalent query. \
+          Refer to snowflake/README.md for more instructions.\
+          """)
   private boolean isPropertiesBothSet() {
     return (StringUtils.isBlank(sfQuery)
         || (StringUtils.isBlank(sfDatabase)

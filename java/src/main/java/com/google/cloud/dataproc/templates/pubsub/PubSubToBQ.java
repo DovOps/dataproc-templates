@@ -184,22 +184,26 @@ public class PubSubToBQ implements BaseTemplate {
           PUBSUB_BQ_OUTPOUT_DATASET_PROP,
           PUBSUB_BQ_OUTPOUT_TABLE_PROP);
       throw new IllegalArgumentException(
-          "Required parameters for PubSubToBQ not passed. "
-              + "Set mandatory parameter for PubSubToBQ template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for PubSubToBQ not passed. \
+          Set mandatory parameter for PubSubToBQ template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting PubSub to BQ spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {},{}"
-            + "5. {},{}"
-            + "6. {},{}"
-            + "7. {},{}"
-            + "8. {},{}"
-            + "9, {},{}",
+        """
+        Starting PubSub to BQ spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {},{}\
+        5. {},{}\
+        6. {},{}\
+        7. {},{}\
+        8. {},{}\
+        9, {},{}\
+        """,
         PUBSUB_INPUT_PROJECT_ID_PROP,
         inputProjectID,
         PUBSUB_INPUT_SUBSCRIPTION_PROP,

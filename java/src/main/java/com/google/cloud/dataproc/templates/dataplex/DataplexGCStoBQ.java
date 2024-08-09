@@ -150,14 +150,14 @@ public class DataplexGCStoBQ implements BaseTemplate {
   public void validateInput() {
     if (sourceEntity == null || projectId == null) {
       throw new IllegalArgumentException(
-          String.format(
-              "Please specify the %s property",
+          
+              "Please specify the %s property".formatted(
               (sourceEntity == null && projectId != null) ? ENTITY_OPTION : PROJECT_ID_PROP));
     }
     if (targetDataset == null && targetAsset == null && targetEntity == null) {
       throw new IllegalArgumentException(
-          String.format(
-              "Please specify one of %s, %s or %s properties",
+          
+              "Please specify one of %s, %s or %s properties".formatted(
               DATAPLEX_GCS_BQ_TARGET_DATASET,
               DATAPLEX_GCS_BQ_TARGET_ASSET,
               DATAPLEX_GCS_BQ_TARGET_ENTITY));
@@ -259,7 +259,7 @@ public class DataplexGCStoBQ implements BaseTemplate {
       allPartitionsDf =
           allPartitionsDf.selectExpr(
               SPARK_SQL_SELECT_STAR,
-              String.format(SPARK_SQL_SPLIT_VALUE_AND_GET_KEY, i + 1, partitionKeysList.get(i)));
+              SPARK_SQL_SPLIT_VALUE_AND_GET_KEY.formatted(i + 1, partitionKeysList.get(i)));
     }
     allPartitionsDf = allPartitionsDf.drop(SPARK_SQL_VALUE_FIELD);
     return allPartitionsDf;
@@ -279,8 +279,8 @@ public class DataplexGCStoBQ implements BaseTemplate {
 
     try {
       String sql =
-          String.format(
-              SPARK_SQL_SELECT_DISTINCT_FROM,
+          
+              SPARK_SQL_SELECT_DISTINCT_FROM.formatted(
               String.join(COMMA_DELIMITER, partitionKeysList),
               targetTable);
       return spark.read().format(SPARK_READ_FORMAT_BIGQUERY).load(sql);
@@ -314,17 +314,17 @@ public class DataplexGCStoBQ implements BaseTemplate {
     bqPartitionsKeysDS.createOrReplaceTempView(SPARK_SQL_BQ_PARTITION_KEYS_TEMP_VIEW);
     String joinClause =
         partitionKeysList.stream()
-            .map(str -> String.format(SPARK_SQL_COMPARE_COLS, str, str))
+            .map(str -> SPARK_SQL_COMPARE_COLS.formatted(str, str))
             .collect(Collectors.joining(SPARK_SQL_AND));
     Dataset<Row> newPartitionsDS =
         spark.sql(
-            String.format(
-                SPARK_SQL_GET_NEW_PATHS,
+            
+                SPARK_SQL_GET_NEW_PATHS.formatted(
                 SPARK_SQL_GCS_LOCATION_PATH_COL_NAME,
                 SPARK_SQL_DATAPLEX_PARTITION_KEYS_TEMP_VIEW_NAME,
                 SPARK_SQL_BQ_PARTITION_KEYS_TEMP_VIEW,
                 joinClause,
-                partitionKeysList.get(0)));
+                partitionKeysList.getFirst()));
     return newPartitionsDS;
   }
 
@@ -452,7 +452,7 @@ public class DataplexGCStoBQ implements BaseTemplate {
                 .split(FORWARD_SLASH)[this.sourceEntity.split(FORWARD_SLASH).length - 1];
       }
       this.targetTable =
-          String.format(BQ_TABLE_NAME_FORMAT, projectId, targetDataset, targetTableName);
+          BQ_TABLE_NAME_FORMAT.formatted(projectId, targetDataset, targetTableName);
     }
   }
 

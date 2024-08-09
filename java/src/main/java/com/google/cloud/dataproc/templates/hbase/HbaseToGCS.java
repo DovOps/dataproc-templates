@@ -79,16 +79,20 @@ public class HbaseToGCS implements BaseTemplate, TemplateConstants {
           HBASE_TO_GCS_OUTPUT_SAVE_MODE,
           HBASE_TO_GCS_TABLE_CATALOG);
       throw new IllegalArgumentException(
-          "Required parameters for HbaseToGCS not passed. "
-              + "Set mandatory parameter for HbaseToGCS template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for HbaseToGCS not passed. \
+          Set mandatory parameter for HbaseToGCS template \
+          in resources/conf/template.properties file.\
+          """);
     }
     LOGGER.info(
-        "Starting Hbase to GCS spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {},{}",
+        """
+        Starting Hbase to GCS spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {},{}\
+        """,
         HBASE_TO_GCS_OUTPUT_PATH,
         gcsWritePath,
         HBASE_TO_GCS_OUTPUT_FILE_FORMAT,

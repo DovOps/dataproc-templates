@@ -131,19 +131,23 @@ public class S3ToBigQuery implements BaseTemplate {
           S3_BQ_LD_TEMP_BUCKET_NAME,
           S3_BQ_INPUT_FORMAT);
       throw new IllegalArgumentException(
-          "Required parameters for S3toBQ not passed. "
-              + "Set mandatory parameter for S3toBQ template "
-              + "in resources/conf/template.properties file.");
+          """
+          Required parameters for S3toBQ not passed. \
+          Set mandatory parameter for S3toBQ template \
+          in resources/conf/template.properties file.\
+          """);
     }
 
     LOGGER.info(
-        "Starting S3 to Bigquery spark job with following parameters:"
-            + "1. {}:{}"
-            + "2. {}:{}"
-            + "3. {}:{}"
-            + "4. {}:{}"
-            + "5. {}:{}"
-            + "6. {}:{}",
+        """
+        Starting S3 to Bigquery spark job with following parameters:\
+        1. {}:{}\
+        2. {}:{}\
+        3. {}:{}\
+        4. {}:{}\
+        5. {}:{}\
+        6. {}:{}\
+        """,
         PROJECT_ID_PROP,
         projectID,
         S3_BQ_INPUT_LOCATION,

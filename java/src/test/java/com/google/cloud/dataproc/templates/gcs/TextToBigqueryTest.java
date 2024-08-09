@@ -69,9 +69,11 @@ public class TextToBigqueryTest {
     Exception exception =
         assertThrows(IllegalArgumentException.class, () -> textToBigquery.validateInput());
     assertEquals(
-        "Required parameters for TextToBigquery not passed. "
-            + "Set mandatory parameter for TextToBigquery template"
-            + " in resources/conf/template.properties file.",
+        """
+        Required parameters for TextToBigquery not passed. \
+        Set mandatory parameter for TextToBigquery template\
+         in resources/conf/template.properties file.\
+        """,
         exception.getMessage());
   }
 

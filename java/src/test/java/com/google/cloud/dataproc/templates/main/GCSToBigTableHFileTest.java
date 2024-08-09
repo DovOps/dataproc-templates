@@ -50,18 +50,22 @@ class GCSToBigTableHFileTest {
       // Check for substrings as order members within json is not deterministic.
       assertTrue(
           catalog.contains(
-              "\"table\": {\n"
-                  + "    \"namespace\": \"default\",\n"
-                  + "    \"name\": \"testTable\"\n"
-                  + "  }"));
+              """
+              "table": {
+                  "namespace": "default",
+                  "name": "testTable"
+                }\
+              """));
       assertTrue(catalog.contains("\"col\": \"id\","));
       assertTrue(
           catalog.contains(
-              "\"rowkey\": {\n"
-                  + "      \"cf\": \"rowkey\",\n"
-                  + "      \"col\": \"id\",\n"
-                  + "      \"type\": \"string\"\n"
-                  + "    }"));
+              """
+              "rowkey": {
+                    "cf": "rowkey",
+                    "col": "id",
+                    "type": "string"
+                  }\
+              """));
     } catch (Exception e) {
       LOGGER.error("Error while getting catalog.", e);
       fail("Catalog get operation failed.");

@@ -95,7 +95,7 @@ public class DataplexEntityUtil {
    * @throws IOException when request on Dataplex API fails
    */
   private JsonObject getEntitySchema() throws IOException {
-    String url = String.format(GET_ENTITY_METHOD_URL, this.entityName);
+    String url = GET_ENTITY_METHOD_URL.formatted(this.entityName);
     return DataplexAPIUtil.executeRequest(url);
   }
 
@@ -107,7 +107,7 @@ public class DataplexEntityUtil {
    * @throws IOException when request on Dataplex API fails
    */
   private JsonObject getEntityPartitions(String pageToken) throws IOException {
-    String url = String.format(GET_ENTITY_PARTITIONS_METHOD_URL, this.entityName);
+    String url = GET_ENTITY_PARTITIONS_METHOD_URL.formatted(this.entityName);
     if (pageToken != null) {
       url += "pageToken=" + pageToken;
     }
@@ -349,8 +349,8 @@ public class DataplexEntityUtil {
         schema.stream()
             .map(
                 field ->
-                    String.format(
-                        "CAST ( %s AS %s) %s", field.name(), field.dataType().sql(), field.name()))
+                    
+                        "CAST ( %s AS %s) %s".formatted(field.name(), field.dataType().sql(), field.name()))
             .collect(Collectors.toList());
 
     return inputDS.selectExpr(selectExpresions.toArray(new String[0]));
@@ -361,7 +361,7 @@ public class DataplexEntityUtil {
     Pattern p = Pattern.compile(TABLE_NAME_REGEX);
     Matcher m = p.matcher(dataPath);
     m.find();
-    return String.format(BQ_TABLE_NAME_FORMAT, m.group(1), m.group(2), m.group(3));
+    return BQ_TABLE_NAME_FORMAT.formatted(m.group(1), m.group(2), m.group(3));
   }
 
   public class DataplexEntityUtilNoPartitionError extends RuntimeException {

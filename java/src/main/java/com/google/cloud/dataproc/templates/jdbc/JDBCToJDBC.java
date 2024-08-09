@@ -108,8 +108,8 @@ public class JDBCToJDBC implements BaseTemplate {
     Statement statement = connection.createStatement();
 
     statement.executeUpdate(
-        String.format(
-            "ALTER TABLE %s ADD PRIMARY KEY (%s)",
+        
+            "ALTER TABLE %s ADD PRIMARY KEY (%s)".formatted(
             config.getJdbcOutputTable(), config.getJdbcOutputPrimaryKey()));
 
     statement.close();
